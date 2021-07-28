@@ -5,8 +5,7 @@
     <Suspense>
          <template #default>
            <!-- 请求完成 -->
-              <!-- <AsyncShow/> -->
-              <girlShow></girlShow>
+              <AsyncShow/>
           </template> 
           <!-- 请求中 -->
           <template #fallback>
@@ -18,26 +17,19 @@
 
 <script lang="ts">
 //reactive
-import { onErrorCaptured } from "vue";
+// import { ref } from "vue";
 import Modal from './components/Modal.vue'
 import AsyncShow from './components/AsyncShow.vue'
-import girlShow from './components/girlShow.vue'
 export default {
   name: "App", 
   components:{
     Modal,
-    AsyncShow,
-    girlShow
+    AsyncShow
   },
   setup() {
-     onErrorCaptured((err)=>{
-          console.log(err,"|onErrorCaptured===>err")
-          return true
-        })
     return {
     };
   },
- 
 };
 </script>
 

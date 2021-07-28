@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Vue 测试实例 - 菜鸟教程(runoob.com)</title>
+<script src="https://unpkg.com/vue/dist/vue.js"></script>
+</head>
+<body>
+<div id="app">
+  <p>{{ message }}</p>
+  <div>{{a.b[0].c[0].name.go}}</div>
+  <button @click="clickFn">click</button>
+</div>
+
+<script>
+new Vue({
+  el: '#app',
+  data: {
+    message: 'Hello Vue.js!',
+    a:{
+        b:[
+            {
+                c:[
+                   {
+                       name:[
+                       {
+                           go:'name+==='
+                       }
+                   ]},
+                ]
+            }
+        ]
+    }
+  },
+  methods:{
+    clickFn(){
+        this.$set(this.a.b[0].c[0].name,'go','你好'+new Date()*1)
+        console.log(this.a.b[0].c[0].name);
+    }
+  }
+})
+</script>
+</body>
+</html>
