@@ -1,14 +1,21 @@
 <template>
-  <modelBtn/>
+   <Suspense>
+      <template #default>
+         <AsyncShow/>
+      </template>
+       <template #fallback>
+        <div>loading...</div>
+      </template>
+   </Suspense>
   <button @click="changeFn">changeFn</button>
 </template>
 
 <script lang="ts">
 import { defineComponent, isProxy, isReactive, isReadonly, isRef, provide, reactive, readonly, ref } from 'vue'
-import modelBtn from './components/modelBtn.vue'
+import AsyncShow from './components/AsyncShow.vue'
 export default defineComponent({
   components:{
-    modelBtn
+    AsyncShow
   },
   setup() {
     /* 
