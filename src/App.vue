@@ -8,11 +8,15 @@
       </template>
    </Suspense>
   <button @click="changeFn">changeFn</button>
+  <div class="textClass">
+    <div class="textClass2">sdsd</div>
+  </div>
 </template>
 
 <script lang="ts">
 import { defineComponent, isProxy, isReactive, isReadonly, isRef, provide, reactive, readonly, ref } from 'vue'
 import AsyncShow from './components/AsyncShow.vue'
+import { getCompanyDetail } from './api/api.js';
 export default defineComponent({
   components:{
     AsyncShow
@@ -35,6 +39,7 @@ export default defineComponent({
     provide('colorName',color)
     let changeFn=()=>{
        color.value='green'
+       getCompanyDetail();
     }
     return {
       color,changeFn
@@ -44,6 +49,10 @@ export default defineComponent({
 </script>
 
 
-<style>
-
+<style lang="scss" type="text/css">
+.textClass{
+  .textClass2{
+    color:#ddd
+  }
+}
 </style>
